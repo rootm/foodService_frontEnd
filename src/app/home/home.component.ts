@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {FoodService} from '../food.service';
+
+interface Food {
+  obj: Object;
+}
 
 @Component({
   selector: 'app-home',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  foodDetails: Object = [];
+  message = 'yyyyyyyyyyy';
+
+  constructor(private foodService: FoodService) { }
 
   ngOnInit() {
+    console.error('yyyyy');
+    this.foodService.getFoodDetails().subscribe(data => {
+      this.foodDetails = data;
+    });
+    console.log('xxxxx');
   }
 
 }
