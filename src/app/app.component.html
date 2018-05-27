@@ -6,7 +6,7 @@
 
       <li class="nav-item">Sign Up</li>
       <li class="nav-item">Log In</li>
-      <li class="nav-item"><button class="cart-button"> {{cartCount}} <img class="cart-icon" src="assets/shopping-cart.png"></button></li>
+      <li class="nav-item"><button class="cart-button" (click)=" setShowCart(true) "> {{cartCount}} <img class="cart-icon" src="assets/shopping-cart.png"></button></li>
     </ul>
   </div>
 </div>
@@ -59,9 +59,9 @@
 
 </div>
 
-<div id="cart" class="backdrop-modal">
+<div class="backdrop-modal" [ngClass]="{ 'cart' : !getShowCart()}">
   <div class="cart-area">
-    <div class="close-button">
+    <div class="close-button" (click)=" setShowCart(false)">
       <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 469.78 469.79">
         <defs>
           <style>
@@ -74,7 +74,37 @@
               transform="translate(0 0)" />
       </svg>
     </div>
+    <div class="cart-topic">Shopping Cart</div>
 
+        <table class="cart-items">
+          <tr class="cart-header">
+
+            <th class="header-name">Description</th>
+            <th class="header-price">Price</th>
+            <th class="header-qty">Qty</th>
+            <th class="header-total">Total</th>
+            <th class="header-close">Remove</th>
+          </tr>
+          <tr class="cart-item animate-repeat" ng-repeat="">
+            <td>Chicken burger</td>
+            <td>Rs. 100</td>
+            <td>3</td>
+            <td>RS. 300</td>
+            <td> <span class="item-remove-button">
+          <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 469.78 469.79">
+            <defs>
+              <style>
+                .cls-1 {
+                  fill: #484848;
+                }
+              </style>
+            </defs>
+            <path class="cls-1" d="M285.37,234.69l174-174a35.55,35.55,0,0,0-50.28-50.28l-174,174-174-174A35.55,35.55,0,0,0,10.81,60.7l174,174L10.42,409.09A35.55,35.55,0,1,0,60.7,459.36L235.09,285l174,174a35.55,35.55,0,0,0,50.28-50.28Z"
+                  transform="translate(0 0)" />
+          </svg>
+        </span> </td>
+          </tr>
+        </table>
 
   </div>
 </div>

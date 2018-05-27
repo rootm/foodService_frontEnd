@@ -15,7 +15,22 @@ export class AppComponent  implements OnInit {
   foodDetails = [];
   rowCount: number[];
   cartCount: number;
+  private _showCart = false;
+  hideCart = true;
   message = 'yyyyyyyyyyy';
+
+  getShowCart(): boolean {
+   return this._showCart;
+  }
+
+  setShowCart(value: boolean) {
+    console.log('show cart');
+    this._showCart = value;
+  }
+
+
+
+
 
   constructor(private foodService: FoodService) {
      this.foodService.getFoodDetails().subscribe((data) => {
