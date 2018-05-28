@@ -14,12 +14,26 @@ export class AppComponent  implements OnInit {
   cart = [];
   foodDetails = [];
   rowCount: number[];
-  cartCount: number;
+  cartCount = 0;
+  found;
+  id: number;
+  grandTotal=0;
   private _showCart = false;
-  hideCart = true;
-  message = 'yyyyyyyyyyy';
+
+
+  getGrandTotal(){
+    this.grandTotal=0;
+    if(this.cart.length > 0){
+      for (let item of this.cart){
+        console.log(this.grandTotal);
+        this.grandTotal =  this.grandTotal +(item.price * item.qnty);
+      }
+
+    }
+  }
 
   getShowCart(): boolean {
+    this.getGrandTotal();
    return this._showCart;
   }
 
@@ -50,9 +64,40 @@ export class AppComponent  implements OnInit {
     // console.log(this.foodDetails.toString());
     }
 
+    findInCart(id) {
+      return this.cart.find(function (obj) { return obj.foodId === id; });
+    }
+
+  findInCartID(id) {
+    return this.cart.findIndex(function (obj) { return obj.foodId === id; });
+  }
+
+  removeItem(item){
+    this.found = this.findInCart(item.foodId);
+    this.id = this.findInCartID(item.foodId);
+    if (this.found.qnty == 1){
+      this.cart.splice(this.id,1);
+    }else{
+      this.found.qnty= this.found.qnty - 1;
+    }
+    this.cartCount =  this.cartCount - 1;
+    console.log("here")
+
+  }
+
     addToCart(item) {
-      this.cart.push(item);
-      this.cartCount = this.cart.length;
+      this.found = this.findInCart(item.foodId);
+      console.log("xxx");
+      console.log(this.found);
+      if ( this.found == undefined) {
+        item.qnty = 1;
+        this.cart.push(item);
+      }else{
+        item.qnty = item.qnty + 1;
+      }
+
+      this.cartCount =  this.cartCount + 1;
+     // console.log(item);
     }
 
 

@@ -12,7 +12,7 @@
 </div>
 
 <div class="section-top-rated container">
-  <div class="section-heading">Top Rated Rooms</div>
+  <div class="section-heading">Top Rated Foods</div>
   <div >
     <div  *ngFor="let row of rowCount;let crow = index">
 {{crow}}<div *ngFor="let foods of foodDetails">
@@ -85,12 +85,12 @@
             <th class="header-total">Total</th>
             <th class="header-close">Remove</th>
           </tr>
-          <tr class="cart-item animate-repeat" ng-repeat="">
-            <td>Chicken burger</td>
-            <td>Rs. 100</td>
-            <td>3</td>
-            <td>RS. 300</td>
-            <td> <span class="item-remove-button">
+          <tr class="cart-item animate-repeat" *ngFor=" let item of cart ">
+            <td>{{item.name}}</td>
+            <td>Rs. {{item.price}}</td>
+            <td>{{item.qnty}}</td>
+            <td>RS. {{item.qnty * item.price}}</td>
+            <td> <div  (click)="removeItem(item)" class="item-remove-button" >
           <svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 469.78 469.79">
             <defs>
               <style>
@@ -102,7 +102,13 @@
             <path class="cls-1" d="M285.37,234.69l174-174a35.55,35.55,0,0,0-50.28-50.28l-174,174-174-174A35.55,35.55,0,0,0,10.81,60.7l174,174L10.42,409.09A35.55,35.55,0,1,0,60.7,459.36L235.09,285l174,174a35.55,35.55,0,0,0,50.28-50.28Z"
                   transform="translate(0 0)" />
           </svg>
-        </span> </td>
+        </div> </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td colspan="2" class="grand-total">Grand Total {{grandTotal}}</td>
           </tr>
         </table>
 
