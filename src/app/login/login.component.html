@@ -1,3 +1,46 @@
-<p>
-  login works!
-</p>
+<div id="login" class="backdrop-modal">
+  <div class="login-area">
+
+
+
+    <div class="email-login-topic">
+      <span>Login with Email</span>
+    </div>
+    <form class="email-login">
+      <div class="text-container">
+        <div class="email-icon icon"></div>
+        <input type="text" placeholder="Email" id="login-email" name="user-email">
+
+      </div>
+      <div class="text-container">
+        <div class="email-icon icon"></div>
+        <input type="password" placeholder="Password" id="login-pass" name="user-email">
+
+      </div>
+
+      <div class="login-link-area">
+        <div class="remember">
+
+          <label class="containerz">Remember Me
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+
+        </div>
+        <div class="reset-link-area">
+          <a href="/password-forgot" class="forgot-link" aria-busy="false">Forgot my password!</a>
+        </div>
+      </div>
+
+
+      <button type="button" class="log-button" name="login-button">Log in</button>
+    </form>
+
+    <div class="login-signup">
+      <span>New to FastFood? </span>
+      <span class="login-signup-link">
+          <a href="/sign_up">Sign up</a>
+        </span>
+    </div>
+  </div>
+</div>
