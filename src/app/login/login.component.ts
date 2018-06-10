@@ -8,14 +8,18 @@ import {FoodService} from "../services/food.service";
 })
 export class LoginComponent implements OnInit {
 
+  // used to get login details from the form
   loginUser(event){
+    //disable default loading behavior
     event.preventDefault();
+    //collect form data
     const password= event.target.querySelector('#login_pass').value;
     const email = event.target.querySelector('#login_email').value;
     const postDetails =JSON.stringify({"username": email, "password": password});
 
+    // post it to back end with authService
     this.authService.login(email,password);
-    console.log(postDetails);
+
   }
 
   constructor(private authService: AuthService) {
@@ -23,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("login");
+
   }
 
 }

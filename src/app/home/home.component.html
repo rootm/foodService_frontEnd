@@ -5,7 +5,7 @@
     <ul class="nav-items">
 
 
-      <li class="nav-item">Log Out</li>
+      <li class="nav-item" (click)="getauth().userLogout()">Log Out</li>
       <li class="nav-item"><button class="cart-button" (click)=" setShowCart(true) "> {{cartCount}} <img class="cart-icon" src="assets/shopping-cart.png"></button></li>
     </ul>
   </div>

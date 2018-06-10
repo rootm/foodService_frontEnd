@@ -28,20 +28,21 @@ export class AuthService {
    } ).subscribe( (data) => {
 
      if (data && data.token){
-       console.log(data.token);
+       //id data has a token store in local storage to start a session
 
        localStorage.setItem('access_token',data.token);
        this.loggedIn=true;
+       //navigate to home component
        this.router.navigate(['']);
 
      }else{
        localStorage.removeItem('access_token');
        this.loggedIn=false;
      }
-      console.log(data);
+
    });
 
-    //localStorage.setItem('access_token',user.token);
+
 
 
 
@@ -56,27 +57,25 @@ export class AuthService {
       lname: lname,
       password: password
     } ).subscribe( (data) => {
-
+      //if data is recieved and contains token
       if (data && data.token) {
-        console.log(data.token);
+        //set token to the local stoarage to identify the session
 
         localStorage.setItem('access_token', data.token);
         this.loggedIn=true;
+        //navigate to the home page
         this.router.navigate(['']);
       }else if(data && data.error === 'exists'){
+        // user name already exists and show error message
         this.loggedIn=false;
         alert("User Name exists");
       }else{
+        //server side error occured
         this.loggedIn=false;
         localStorage.removeItem('access_token');
       }
-      console.log(data);
+
     });
-
-    //localStorage.setItem('access_token',user.token);
-
-
-
 
   }
 
@@ -85,6 +84,7 @@ export class AuthService {
     //remove session token rom the storage
     //this will logout the user and redirect to login
     localStorage.removeItem('access_token');
+    this.router.navigate(['login']);
   }
 
 }
