@@ -6,15 +6,15 @@
     <div class="email-login-topic">
       <span>Login with Email</span>
     </div>
-    <form class="email-login">
+    <form class="email-login" (submit)="loginUser($event)">
       <div class="text-container">
         <div class="email-icon icon"></div>
-        <input type="text" placeholder="Email" id="login-email" name="user-email">
+        <input type="text" placeholder="Email" id="login_email" name="user_email">
 
       </div>
       <div class="text-container">
         <div class="email-icon icon"></div>
-        <input type="password" placeholder="Password" id="login-pass" name="user-email">
+        <input type="password" placeholder="Password" id="login_pass" name="user_pass">
 
       </div>
 
@@ -33,7 +33,7 @@
       </div>
 
 
-      <button type="button" class="log-button" name="login-button">Log in</button>
+      <button type="submit" class="log-button" name="login-button">Log in</button>
     </form>
 
     <div class="login-signup">

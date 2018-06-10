@@ -7,30 +7,30 @@
       <div class="email-login-topic">
         <span>Register with Email</span>
       </div>
-      <form>
+      <form (submit)="registerUser($event)">
         <div class="text-container">
           <div class="email-icon icon"></div>
-          <input type="text" placeholder="Email" id="reg-email" name="user-email">
+          <input type="email" placeholder="Email" id="reg_email" name="user_email">
 
         </div>
         <div class="text-container">
           <div class="user-icon icon"></div>
-          <input type="text" placeholder="First Name" id="reg-fname" name="user-fname">
+          <input type="text" placeholder="First Name" id="reg_fname" name="user_fname">
 
         </div>
         <div class="text-container">
           <div class="user-icon icon"></div>
-          <input type="text" placeholder="Last Name" id="reg-lname" name="user-lname">
+          <input type="text" placeholder="Last Name" id="reg_lname" name="user_lname">
 
         </div>
 
         <div class="text-container">
           <div class="pass-icon icon"></div>
-          <input type="password" placeholder="Password" id="reg-pass" name="user-pass">
+          <input type="password" placeholder="Password" id="reg_pass" name="user_pass">
 
         </div>
 
-        <button type="button" class="reg-button" name="login-button">Register With Email</button>
+        <button type="submit" class="reg_button" name="login_button">Register With Email</button>
       </form>
 
       <div class="register-login">

@@ -22,25 +22,30 @@ export class HomeComponent implements OnInit {
   grandTotal=0;
   private _showCart = false;
 
+  get cartItems(){
+    return this.cart;
+  }
 
   getGrandTotal(){
     this.grandTotal=0;
     if(this.cart.length > 0){
       for (let item of this.cart){
-        console.log(this.grandTotal);
+
         this.grandTotal =  this.grandTotal +(item.price * item.qnty);
       }
+
+      return this.grandTotal;
 
     }
   }
 
   getShowCart(): boolean {
-    this.getGrandTotal();
+
     return this._showCart;
   }
 
   setShowCart(value: boolean) {
-    console.log('show cart');
+
     this._showCart = value;
   }
 
@@ -50,20 +55,19 @@ export class HomeComponent implements OnInit {
 
   constructor(private foodService: FoodService) {
     this.foodService.getFoodDetails().subscribe((data) => {
-      console.log(data);
+
       this.foodDetails.push(data);
       if (this.foodDetails.length / 4 < 0) {
         this.rowCount = Array (1).fill(0).map((x, i) => i);
       } else {
-        console.log((this.foodDetails.length % 4) + 1);
+
         this.rowCount = Array ((this.foodDetails.length % 4) + 1).fill(0).map((x, i) => i);
       }
     });
   }
 
   ngOnInit() {
-    console.error('yyyyy');
-    // console.log(this.foodDetails.toString());
+
   }
 
   findInCart(id) {
@@ -83,14 +87,14 @@ export class HomeComponent implements OnInit {
       this.found.qnty= this.found.qnty - 1;
     }
     this.cartCount =  this.cartCount - 1;
-    console.log("here")
+
 
   }
 
   addToCart(item) {
     this.found = this.findInCart(item.foodId);
-    console.log("xxx");
-    console.log(this.found);
+
+
     if ( this.found == undefined) {
       item.qnty = 1;
       this.cart.push(item);
@@ -99,7 +103,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.cartCount =  this.cartCount + 1;
-    // console.log(item);
+
   }
 
 }

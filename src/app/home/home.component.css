@@ -38,7 +38,7 @@
 
   margin: 10px;
 }
-.book-button{
+.order-button{
 
   color: #ffffff;
   font-size: 15px;
@@ -235,4 +235,20 @@
   font-size: 18px;
   padding-top: 15px;
 
+}
+
+.pay-button{
+
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  vertical-align: center;
+  line-height: 35px;
+  width: 150px;
+  height: 35px;
+  background: #34495e;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 6px;
+  margin-top: 10px;
 }

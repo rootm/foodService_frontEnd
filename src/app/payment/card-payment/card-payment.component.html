@@ -1,0 +1,34 @@
+<div id="reg" class="backdrop-modal">
+  <div class="reg-area">
+
+    <div>
+
+
+      <div class="email-login-topic">
+        <span>Online Card Payment</span>
+      </div>
+      <form (submit)="registerUser($event)">
+        <div class="text-container">
+          <div class="email-icon icon"></div>
+          <input type="text" placeholder="Card holders name" id="card_name" name="name">
+
+        </div>
+        <div class="text-container">
+          <div class="user-icon icon"></div>
+          <input type="number" placeholder="Card number" id="card_number" name="number">
+
+        </div>
+        <div class="text-container">
+          <div class="user-icon icon"></div>
+          <input type="number" placeholder="CVC Number" id="card_cvc" name="cvc" min="1" max="999">
+
+        </div>
+
+
+
+        <button type="submit" class="pay_button" name="pay_button">Pay Now</button>
+      </form>
+
+    </div>
+  </div>
+</div>

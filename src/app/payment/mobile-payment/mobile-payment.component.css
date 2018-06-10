@@ -12,11 +12,11 @@
   background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
 
 }
-.reg_button{
+.pay_button{
 
   width: 100%;
   height: 45px;
-  background-color: #F44336;
+  background-color: #5f27cd;
   border: none;
   border-radius: 2px;
   color: #FFF;
@@ -31,7 +31,7 @@
   margin: 0px auto;
   position: relative;
   width: 500px;
-  height: 500px;
+  height: 400px;
   background: #ffffff;
   padding: 32px;
   vertical-align: middle;

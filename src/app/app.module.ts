@@ -7,13 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CardPaymentComponent } from './payment/card-payment/card-payment.component';
+import { MobilePaymentComponent } from './payment/mobile-payment/mobile-payment.component';
+
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CardPaymentComponent,
+    MobilePaymentComponent
 
   ],
   imports: [
